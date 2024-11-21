@@ -1,6 +1,18 @@
 package NewsSubService;
+public class Subscriber implements SubscriberObserver {
 
-public interface Subscriber {
-    // Observer
-    void update(String news);
+    private String subscriberName;
+
+    public Subscriber(String subscriberName) {
+        this.subscriberName = subscriberName;
+    }
+
+    public String getSubscriberName() {
+        return subscriberName;
+    }
+
+    @Override
+    public void update(String news) {
+        System.out.println(subscriberName + " received news: " + news +"\n");
+    }
 }
