@@ -13,6 +13,6 @@ public class Subscriber implements SubscriberObserver {
 
     @Override
     public void update(String news) {
-        System.out.println(subscriberName + " received news: " + news +"\n");
+        System.out.println("\n" + subscriberName + " received news: " + news );
     }
 }

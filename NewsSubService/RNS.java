@@ -14,7 +14,7 @@ public class RNS {
         newsAgency.subscribe(oliver);
 
         // Publish news
-        newsAgency.publishNews("Breaking News: New Technology Released!");
+        newsAgency.publishNews("\nBreaking News: New Technology Released!\n");
 
         // Update subscribers list: remove Juan, add Jerry
         newsAgency.unsubscribe(juan);
@@ -22,7 +22,7 @@ public class RNS {
         newsAgency.subscribe(jerry);
 
         // Publish another news
-        newsAgency.publishNews("Update: Major Discovery in Science!");
+        newsAgency.publishNews("\nUpdate: Major Discovery in Science!\n");
 
         
     }
