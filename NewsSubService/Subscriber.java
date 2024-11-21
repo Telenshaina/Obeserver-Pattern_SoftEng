@@ -1,4 +1,5 @@
 package NewsSubService;
+
 public class Subscriber implements SubscriberObserver {
 
     private String subscriberName;
@@ -13,6 +14,6 @@ public class Subscriber implements SubscriberObserver {
 
     @Override
     public void update(String news) {
-        System.out.println("\n" + subscriberName + " received news: " + news );
+        System.out.println(subscriberName + " received news: " + news);
     }
 }

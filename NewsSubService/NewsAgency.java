@@ -5,31 +5,50 @@ import java.util.List;
 
 public class NewsAgency implements NewsAgencySubject {
 
-    private List<SubscriberObserver> subscribers;
-
+    private String agencyName;
+    private List<SubscriberObserver> subscriberList; 
     public NewsAgency() {
-        this.subscribers = new ArrayList<>();
+        this.subscriberList = new ArrayList<>(); // Initialize the list
     }
 
-    @Override
+    public String getAgencyName() {
+        return agencyName;
+    }
+
+    public void setAgencyName(String agencyName) {
+        this.agencyName = agencyName;
+    }
+
+    public List<SubscriberObserver> getSubscriberList() {
+        return subscriberList;
+    }
+
+    public void setSubscriberList(List<SubscriberObserver> subscriberList) {
+        this.subscriberList = subscriberList;
+    }
+
+     @Override
     public void subscribe(SubscriberObserver subscriber) {
-        subscribers.add(subscriber);
+        subscriberList.add(subscriber);
     }
 
     @Override
     public void unsubscribe(SubscriberObserver subscriber) {
-        subscribers.remove(subscriber);
+        subscriberList.remove(subscriber);
     }
 
     @Override
-    public void notifySubscribers(String news) {
-        for (SubscriberObserver subscriber : subscribers) {
+    public String notifySubscribers(String news) {
+        StringBuilder notifications = new StringBuilder();
+        for (SubscriberObserver subscriber : subscriberList) {
+            notifications.append("Notification sent to: ").append(subscriber.getSubscriberName()).append("\n");
             subscriber.update(news);
         }
+        return notifications.toString();
     }
 
-    public void publishNews(String news) {
+    public String publishNews(String news) {
         System.out.println("Publishing news: " + news);
-        notifySubscribers(news);
+        return notifySubscribers(news);
     }
 }
